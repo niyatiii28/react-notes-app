@@ -1,0 +1,286 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", "Roboto", sans-serif;
+}
+
+code {
+  font-family: "Courier New", monospace;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1rem;
+  position: relative;
+}
+
+.header {
+  background-color: #ffd5ec; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  z-index: 4;
+}
+
+.dark-mode .header {
+  background-color: #121212; 
+}
+
+.light-mode {
+  transition: background-color 250ms;
+}
+
+.dark-mode {
+  background-color: #121212;
+  transition: background-color 250ms;
+  color: #000000;
+}
+
+.dark-mode h1 {
+  color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 15px;
+}
+
+.hero.container {
+  min-height: 100vh;
+  padding-block: 64px;
+}
+
+.notes-list {
+  display: grid;
+  grid-gap: 0.825rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.note.new {
+  background-color: #ffb6c1; 
+}
+
+textarea {
+  border: none;
+  resize: none;
+  background-color: #ffb6c1;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.save {
+  border: none;
+  color: #fff;
+  background-color: #ff8fa3;
+  border-radius: 500px;
+  padding: 8px 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 250ms;
+}
+
+.save:hover {
+  background-color: #e3788e;
+  cursor: pointer;
+}
+
+.note {
+  background-color: #fff7a9;
+  border-radius: 8px;
+  padding: 1rem;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: pre-wrap;
+  height: 200px;
+}
+
+.note .desc {
+  overflow-y: auto;
+}
+
+.note-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-start: 10px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.delete-icon,
+.clipboard-icon {
+  color: rgb(128, 128, 128);
+  font-size: 1.2em;
+  transition: 250ms;
+  cursor: pointer;
+}
+
+.delete-icon {
+  margin-block-end: -0.1em;
+}
+
+.clipboard-icon:hover {
+  color: #ff80ab;
+}
+
+.clipboard-icon.copied {
+  color: #77aaff;
+}
+
+.delete-icon:hover {
+  color: red;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: #ffeaf4;
+  border-radius: 500px;
+  width: 250px;
+  padding: 5px;
+  margin-block: 1.5em;
+  position: relative;
+  overflow: hidden;
+  transition: width 250ms;
+}
+
+.search .search-icon {
+  position: absolute;
+  left: 10px;
+  color: rgb(128, 128, 128);
+  pointer-events: none;
+  transition: 400ms;
+}
+
+.search input {
+  border: none;
+  background-color: #ffeaf4;
+  width: 100%;
+  height: 35px;
+  padding-inline-start: 30px;
+  transition: 250ms;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.search input::placeholder {
+  color: rgb(128, 128, 128);
+}
+
+.search:focus-within {
+  width: 300px;
+}
+
+.search:focus-within .search-icon {
+  transform: translateX(-150%);
+}
+
+.search:focus-within input {
+  padding-inline-start: 10px;
+}
+
+.modal {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  max-width: 450px;
+  width: 100%;
+  margin-inline: 1rem;
+}
+
+.modal-content .close-icon {
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: 250ms;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsla(0, 0%, 88%, 0.5);
+}
+
+.modal-content .close-icon:hover {
+  background-color: hsla(0, 0%, 88%, 0.918);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 1rem;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-block: 2rem 1rem;
+}
+
+.modal-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 500px;
+  background-color: #e1e1e1;
+  cursor: pointer;
+  transition: background-color 250ms;
+}
+
+.modal-buttons button.cancel:hover {
+  background-color: #ffb6c1;
+  color: #fff;
+}
+
+.modal-buttons button.confirm:hover {
+  background-color: #ff8fa3;
+  color: #fff;
+}
+
+.toggle-button {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background-color: #ffc0cb;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 500px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 250ms;
+}
+
+.toggle-button:hover {
+  background-color: #ff8fa3;
+  color: #fff;
+}
